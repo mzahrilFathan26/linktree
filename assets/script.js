@@ -56,26 +56,6 @@ if (copyBtn) {
 }
 
 
-// --------------------------------
-// EMAIL COPY
-// --------------------------------
-if (emailBtn) {
-  emailBtn.addEventListener("click", async (e) => {
-    playClick();
-    addRipple(e, emailBtn);
-
-    const email = "email@example.com";
-
-    try {
-      await navigator.clipboard.writeText(email);
-      emailSub.textContent = email + " • tersalin";
-      setTimeout(() => (emailSub.textContent = "klik untuk salin"), 2000);
-    } catch (err) {
-      alert("Tidak bisa menyalin email.");
-    }
-  });
-}
-
 
 // --------------------------------
 // THEME TOGGLE (tetap sama fungsinya)
