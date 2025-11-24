@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Linktree Clone — Profil Link</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+
+  <!-- =======================================
+       HYBRID AURORA + BLOB BACKGROUND
+       (LAYER PALING BELAKANG)
+       ======================================= -->
+  <div id="bg-aurora"></div>
+  <div id="bg-blobs">
+  <div class="blob"></div>
+  <div class="blob"></div>
+</div>
+
+
+  <!-- =======================================
+       EFEK PARTIKEL TAMBAHAN (LAYER TIPIS)
+       ======================================= -->
+  <div id="particles"></div>
+  <div id="fx-layer"></div>
+
+
+  <!-- =======================================
+       MAIN CONTENT WRAPPER
+       ======================================= -->
+  <div class="wrap">
+    <div class="card glass-max" id="card">
+
+      <!-- Profile Section -->
+      <div class="profile">
+        <div class="avatar avatar-shift" id="avatar">
+          <img 
+            src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop&crop=faces"
+            alt="Avatar"
+          >
+        </div>
+
+        <h1 id="name">Muhammad Zahril Fathan</h1>
+
+        <p class="bio" id="bio">
+          Frontend developer • Open-source • Coffee lover — klik link di bawah untuk profil & project
+        </p>
+      </div>
+
+      <!-- Links -->
+      <nav class="links" aria-label="Link collection">
+
+        <a class="btn gaming-glow" href="https://www.tiktok.com/@username" target="_blank">
+          <span class="icon">🎵</span>
+          <span class="label">TikTok</span>
+          <span class="sub">Video pendek & konten</span>
+        </a>
+
+        <a class="btn gaming-glow" href="https://github.com/username" target="_blank">
+          <span class="icon">🐱</span>
+          <span class="label">GitHub</span>
+          <span class="sub">Repositori & proyek</span>
+        </a>
+
+        <a class="btn gaming-glow" href="https://www.instagram.com/username" target="_blank">
+          <span class="icon">📸</span>
+          <span class="label">Instagram</span>
+          <span class="sub">Foto & stories</span>
+        </a>
+
+        <a class="btn gaming-glow accent" id="portfolioBtn" href="https://your-portfolio.example.com" target="_blank">
+          <span class="icon">💼</span>
+          <span class="label">Portfolio</span>
+          <span class="sub">Lihat project dan CV</span>
+        </a>
+
+        <button class="btn gaming-glow" id="emailBtn">
+          <span class="icon">✉️</span>
+          <span class="label">Email</span>
+          <span class="sub" id="emailSub">klik untuk salin</span>
+        </button>
+
+      </nav>
+
+      <!-- Footer -->
+      <div class="footer">
+        Made dengan ❤️ — edit teks, gambar & link sesuka kamu
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Click Sound -->
+  <audio id="clickSound" src="https://assets.mixkit.co/active_storage/sfx/2005/2005-preview.mp3"></audio>
+
+  <!-- SCRIPT -->
+  <script src="assets/script.js"></script>
+
+</body>
+</html>

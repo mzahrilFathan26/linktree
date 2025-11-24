@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cinematic Loading...</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    color:white;
+    background:black;
+    font-family:"Poppins", sans-serif;
+}
+
+/* AURORA MULTILAYER */
+.aurora {
+    position:absolute;
+    width:160%;
+    height:160%;
+    background:
+        radial-gradient(circle at 30% 30%, #00eaff44, transparent 60%),
+        radial-gradient(circle at 70% 70%, #7b2dff44, transparent 60%),
+        radial-gradient(circle at 50% 20%, #ff4d6d44, transparent 60%);
+    filter:blur(80px);
+    animation:auroraMove 12s ease-in-out infinite alternate;
+    z-index:-3;
+}
+@keyframes auroraMove {
+    0% { transform:translate(-10%, -10%) scale(1); }
+    100% { transform:translate(10%, 10%) scale(1.3); }
+}
+
+/* PARTICLES */
+.spark {
+    position:absolute;
+    width:4px; height:4px;
+    background:white;
+    border-radius:50%;
+    opacity:0.9;
+    animation:sparkMove linear infinite;
+    filter:drop-shadow(0 0 6px white);
+}
+@keyframes sparkMove {
+    from { transform:translateY(0) scale(1); opacity:1; }
+    to { transform:translateY(-120vh) scale(0.2); opacity:0; }
+}
+
+/* HOLOGRAM LOGO */
+.logo {
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    object-fit:cover;
+    animation:
+        holoPulse 2.4s ease-in-out infinite alternate,
+        hoverFloat 6s ease-in-out infinite;
+    filter:drop-shadow(0 0 25px #00f6ff);
+}
+@keyframes holoPulse {
+    0% { filter:drop-shadow(0 0 20px #00eaffaa) hue-rotate(0deg); }
+    100% { filter:drop-shadow(0 0 45px #00eaffff) hue-rotate(40deg); }
+}
+@keyframes hoverFloat {
+    0% { transform:translateY(0); }
+    100% { transform:translateY(-12px); }
+}
+
+/* SCI-FI TYPEWRITER */
+.typing-box { margin-top:25px; text-align:center; }
+#typingText {
+    font-size:1.5rem;
+    line-height:1.6;
+    white-space:nowrap;
+    letter-spacing:1px;
+    display:inline-block;
+    color:#ffffffee;
+    text-shadow:0 0 6px #00eaff88;
+}
+.cursor {
+    display:inline-block;
+    width:6px; height:22px;
+    background:#00f6ff;
+    margin-left:6px;
+    animation:blinkCursor .6s infinite;
+}
+@keyframes blinkCursor {
+    0%,49% { opacity:1; }
+    50%,100% { opacity:0; }
+}
+.tw-char {
+    opacity:0;
+    display:inline-block;
+    filter:blur(4px);
+    transform:translateY(8px) scale(.9);
+    transition:
+        opacity .25s ease-out,
+        transform .25s ease-out,
+        filter .25s ease-out;
+}
+.tw-char.reveal {
+    opacity:1;
+    filter:blur(0);
+    transform:translateY(0) scale(1);
+}
+
+/* LOADER RING */
+.loader {
+    margin-top:40px;
+    width:70px; height:70px;
+    border:5px solid rgba(0,255,255,0.18);
+    border-top-color:#00f7ff;
+    border-radius:50%;
+    animation:
+        spin 0.9s linear infinite,
+        holoGlow 1.4s ease-in-out infinite alternate;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+@keyframes holoGlow {
+    0% { box-shadow:0 0 15px #00eaff55; }
+    100% { box-shadow:0 0 35px #00eaffbb; }
+}
+
+/* FADE OUT TRANSITION */
+.fade-out {
+    animation:fadeOut 1.4s ease forwards;
+}
+@keyframes fadeOut {
+    100% { opacity:0; filter:blur(25px) brightness(.45); }
+}
+</style>
+</head>
+<body>
+
+<div class="aurora"></div>
+<div id="sparkWrap"></div>
+
+<audio id="cinematicSound" src="startup-whoosh.mp3"></audio>
+<audio id="keySfx" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b063a7f54.mp3?filename=key-press-1-100077.mp3"></audio>
+
+<img src="logo.png" class="logo">
+
+<div class="typing-box">
+    <span id="typingText"></span><span class="cursor"></span>
+</div>
+
+<div class="loader"></div>
+
+<script>
+/* ======================
+      SOUND INIT
+====================== */
+const snd = document.getElementById("cinematicSound");
+snd.volume = 0.8;
+snd.play().catch(()=>{});
+
+const keySfx = document.getElementById("keySfx");
+keySfx.volume = 0.35;
+
+/* ======================
+      PARTICLE SPARKS
+====================== */
+const wrap = document.getElementById("sparkWrap");
+for(let i=0;i<60;i++){
+    let s=document.createElement("div");
+    s.className="spark";
+    s.style.left=Math.random()*100+"vw";
+    s.style.bottom="-10vh";
+    s.style.animationDuration=(2+Math.random()*3)+"s";
+    wrap.appendChild(s);
+}
+
+/* ======================
+      SCI-FI TYPING EFFECT
+====================== */
+function sciFiType(elementId,texts,speed=55,spaceDelay=38,nextDelay=900){
+    const el=document.getElementById(elementId);
+    let t=0,c=0;
+
+    function type(){
+        if(t>=texts.length) return;
+
+        const char=texts[t][c];
+        const span=document.createElement("span");
+        span.className="tw-char";
+        // tambahkan space visual
+        span.textContent=(char===" "?"\u00A0":char);
+        el.appendChild(span);
+
+        // reveal effect
+        requestAnimationFrame(()=>span.classList.add("reveal"));
+
+        // keyboard sound
+        if(char!==" "){
+            keySfx.currentTime=0;
+            keySfx.play().catch(()=>{});
+        }
+
+        c++;
+        const delay=char===" "?spaceDelay:speed;
+
+        if(c<texts[t].length){
+            setTimeout(type,delay);
+        }else{
+            t++; c=0;
+            if(t<texts.length){
+                setTimeout(()=>{
+                    el.innerHTML+="<br>";
+                    type();
+                },nextDelay);
+            }
+        }
+    }
+
+    type();
+}
+
+// mulai typing
+sciFiType("typingText",[
+    "Selamat datang...",
+    "Mempersiapkan pengalaman terbaik..."
+]);
+
+/* ======================
+      EXIT TRANSITION
+====================== */
+setTimeout(()=>{
+    document.body.classList.add("fade-out");
+    setTimeout(()=>window.location.href="main.html",1400);
+},5200);
+</script>
+
+</body>
+</html>
