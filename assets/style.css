@@ -533,3 +533,94 @@ p.bio {
 .wrap { z-index: 2; }
 .card { z-index: 3; }
 
+/* ================================
+   RESPONSIVE MOBILE & TABLET
+================================== */
+
+/* Tablet portrait & landscape (≤1024px) */
+@media (max-width: 1024px) {
+  .card {
+    max-width: 340px;
+    padding: 24px;
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+    margin-top: 18px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  p.bio {
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+
+  .links .btn {
+    padding: 10px 14px;
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .sub {
+    font-size: 11px;
+  }
+}
+
+/* Mobile phones (≤600px) */
+@media (max-width: 600px) {
+  .wrap {
+    padding: 24px 12px;
+  }
+
+  .card {
+    max-width: 280px;
+    padding: 20px;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    margin-top: 16px;
+  }
+
+  h1 {
+    font-size: 16px;
+  }
+
+  p.bio {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+
+  .links .btn {
+    padding: 8px 12px;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .label {
+    font-size: 13px;
+  }
+
+  .sub {
+    font-size: 10px;
+  }
+}
