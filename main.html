@@ -4,36 +4,38 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Linktree Clone — Profil Link</title>
+
+  <!-- STYLE -->
   <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- FONT AWESOME ICONS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 </head>
 
 <body>
 
-  <!-- =======================================
-       HYBRID AURORA + BLOB BACKGROUND
-       (LAYER PALING BELAKANG)
-       ======================================= -->
+  <!-- BACKGROUND AURORA + BLOBS -->
   <div id="bg-aurora"></div>
   <div id="bg-blobs">
-  <div class="blob"></div>
-  <div class="blob"></div>
-</div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+  </div>
 
-
-  <!-- =======================================
-       EFEK PARTIKEL TAMBAHAN (LAYER TIPIS)
-       ======================================= -->
+  <!-- PARTICLES LAYER -->
   <div id="particles"></div>
   <div id="fx-layer"></div>
 
-
-  <!-- =======================================
-       MAIN CONTENT WRAPPER
-       ======================================= -->
+  <!-- MAIN CONTENT -->
   <div class="wrap">
     <div class="card glass-max" id="card">
 
-      <!-- Profile Section -->
+      <!-- PROFILE -->
       <div class="profile">
         <div class="avatar avatar-shift" id="avatar">
           <img 
@@ -43,56 +45,50 @@
         </div>
 
         <h1 id="name">Muhammad Zahril Fathan</h1>
-
-        <p class="bio" id="bio">
+       <!-- <p class="bio" id="bio">
           Frontend developer • Open-source • Coffee lover — klik link di bawah untuk profil & project
-        </p>
+        </p>-->
       </div>
 
-      <!-- Links -->
+      <!-- LINKS -->
       <nav class="links" aria-label="Link collection">
 
-        <a class="btn gaming-glow" href="https://www.tiktok.com/@username" target="_blank">
-          <span class="icon">🎵</span>
+        <a class="btn gaming-glow" href="https://www.tiktok.com/@zhrl.fthn?_r=1&_t=ZS-91fk97UZwvg
+          <span class="icon"><i class="fa-brands fa-tiktok"></i></span>
           <span class="label">TikTok</span>
-          <span class="sub">Video pendek & konten</span>
+          <span class="sub">Konten</span>
         </a>
 
-        <a class="btn gaming-glow" href="https://github.com/username" target="_blank">
-          <span class="icon">🐱</span>
+        <a class="btn gaming-glow" href="https://github.com/mzahrilFathan26
+          <span class="icon"><i class="fa-brands fa-github"></i></span>
           <span class="label">GitHub</span>
-          <span class="sub">Repositori & proyek</span>
+          <spa class="sub">Repositori & proyek</spa>
         </a>
 
-        <a class="btn gaming-glow" href="https://www.instagram.com/username" target="_blank">
-          <span class="icon">📸</span>
+        <a class="btn gaming-glow" href="https://www.instagram.com/highmorn?igsh=dXRrYnJvaTc1YTNk&utm_source=qr
+          <span class="icon"><i class="fa-brands fa-instagram"></i></span>
           <span class="label">Instagram</span>
           <span class="sub">Foto & stories</span>
         </a>
 
-        <a class="btn gaming-glow accent" id="portfolioBtn" href="https://your-portfolio.example.com" target="_blank">
-          <span class="icon">💼</span>
+        <a class="btn gaming-glow accent" id="portfolioBtn" href="https://mzahrilfathan26.github.io/Portofolio_Fathan/#tentang
+          <span class="icon"><i class="fa-solid fa-briefcase"></i></span>
           <span class="label">Portfolio</span>
-          <span class="sub">Lihat project dan CV</span>
+          <span class="sub">Project dan CV</span>
         </a>
 
-        <button class="btn gaming-glow" id="emailBtn">
-          <span class="icon">✉️</span>
-          <span class="label">Email</span>
-          <span class="sub" id="emailSub">klik untuk salin</span>
-        </button>
+<button class="btn gaming-glow" id="emailBtn" onclick="window.location.href='mailto:muhammadzahrilfathan@gmail.com'">
+  <span class="icon">✉️</span>
+  <span class="label">Email</span>
+  <span class="sub">klik untuk mengirim</span>
+</button>
+
 
       </nav>
-
-      <!-- Footer -->
-      <div class="footer">
-        Made dengan ❤️ — edit teks, gambar & link sesuka kamu
-      </div>
-
     </div>
   </div>
 
-  <!-- Click Sound -->
+  <!-- CLICK SOUND -->
   <audio id="clickSound" src="https://assets.mixkit.co/active_storage/sfx/2005/2005-preview.mp3"></audio>
 
   <!-- SCRIPT -->
